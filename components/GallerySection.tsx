@@ -2,67 +2,73 @@ export default function GallerySection() {
   const images = [
     {
       src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663523130590/MSgSvmfqHmeNje5V2neXK6/dakingo_gallery_celebration-jRoCkqggan9izjfLQ6tfRi.webp",
-      alt: "Celebration Cake",
+      alt: "Our Cakes",
+      text: "Our Cakes"
     },
     {
       src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663523130590/MSgSvmfqHmeNje5V2neXK6/dakingo_gallery_artisan-783RPvS2fDHQQYwjKvLSvE.webp",
-      alt: "Artisan Decoration",
+      alt: "Artisan Crafted",
+      text: "Artisan Crafted"
     },
     {
       src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663523130590/MSgSvmfqHmeNje5V2neXK6/dakingo_gallery_celebration-jRoCkqggan9izjfLQ6tfRi.webp",
-      alt: "Family Celebration",
+      alt: "Perfect for Every Moment",
+      text: "WE'VE MADE PERFECT FOR EVERY MOMENT"
     },
     {
       src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663523130590/MSgSvmfqHmeNje5V2neXK6/dakingo_gallery_artisan-783RPvS2fDHQQYwjKvLSvE.webp",
-      alt: "Cake Details",
+      alt: "Chocolate Occasions",
+      text: "Chocolate Occasions"
     },
     {
       src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663523130590/MSgSvmfqHmeNje5V2neXK6/dakingo_gallery_celebration-jRoCkqggan9izjfLQ6tfRi.webp",
-      alt: "Celebration Moment",
+      alt: "Happy Moments",
+      text: "Happy Moments"
     },
     {
       src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663523130590/MSgSvmfqHmeNje5V2neXK6/dakingo_gallery_artisan-783RPvS2fDHQQYwjKvLSvE.webp",
-      alt: "Artisan Work",
+      alt: "Award Winning Creations",
+      text: "AWARD WINNING CREATIONS"
     },
   ];
 
   return (
-    <section className="bg-[var(--secondary)] py-12 md:py-20">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)] mb-12 text-center" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-          Our Creations & Happy Moments
-        </h2>
+    <section className="py-8 md:py-12">
+      {/* Gallery Grid - 3 columns */}
+      <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className="relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer h-32 md:h-48"
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+            {/* Overlay text */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-3">
+              <p className="text-white text-xs md:text-sm font-semibold leading-tight">
+                {image.text}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {images.map((image, index) => (
+      {/* Social Media Section */}
+      <div className="flex items-center gap-4">
+        <div className="flex -space-x-2">
+          {[...Array(5)].map((_, i) => (
             <div
-              key={index}
-              className="overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer"
+              key={i}
+              className="w-10 h-10 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center overflow-hidden"
             >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
+              <span className="text-xs">👤</span>
             </div>
           ))}
         </div>
-
-        {/* Social Media Section */}
-        <div className="mt-12 text-center">
-          <p className="text-[var(--foreground)] font-semibold mb-4">Follow us on social!</p>
-          <div className="flex justify-center gap-3">
-            {[...Array(5)].map((_, i) => (
-              <button
-                key={i}
-                className="w-12 h-12 rounded-full bg-[var(--primary)] text-white hover:bg-[var(--primary-dark)] transition-colors flex items-center justify-center"
-              >
-                <span className="text-lg">👤</span>
-              </button>
-            ))}
-          </div>
-        </div>
+        <p className="text-[#8b2e3d] font-semibold text-sm">Follow us on social!</p>
       </div>
     </section>
   );

@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import MenuSection from "@/components/MenuSection";
 import BestsellersSection from "@/components/BestsellersSection";
 import PromiseSection from "@/components/PromiseSection";
-import GallerySection from "@/components/GallerySection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,12 +11,17 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <HeroSection />
-        <MenuSection />
-        <BestsellersSection />
-        <PromiseSection />
-        <GallerySection />
+        
+        {/* Card Container for all sections */}
+        <div className="container mx-auto px-4 max-w-7xl -mt-8 relative z-20">
+          <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-12">
+            <MenuSection />
+            <BestsellersSection />
+            <PromiseSection />
+            <Footer />
+          </div>
+        </div>
       </main>
-      <Footer />
     </div>
   );
 }
