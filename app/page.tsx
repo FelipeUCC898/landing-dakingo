@@ -12,9 +12,9 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         
-        {/* Card Container for all sections */}
-        <div className="container mx-auto px-4 max-w-7xl -mt-8 relative z-20">
-          <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-12">
+        {/* Card Container for all sections - overlaps hero */}
+        <div className="container mx-auto px-4 max-w-7xl -mt-16 md:-mt-20 relative z-20">
+          <div className="bg-white rounded-t-[3rem] shadow-2xl p-6 md:p-12 pt-8 md:pt-12">
             <MenuSection />
             <BestsellersSection />
             <PromiseSection />
